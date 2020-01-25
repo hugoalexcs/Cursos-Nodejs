@@ -1,12 +1,13 @@
 
-
+//importando um modulo interno do NodeJS
+import util from 'util';
+const obterEnderecoAsync = util.promisify(obterEndereco);
 
 //Refatorando o Callbacks para Promises
 function obterUsuario() {
-    /**
-     * Erroro => Reject
-     * Success => resolve
-     */
+    
+    // Erroro => Reject
+     // Success => resolve
     return new Promise(function resolvePromise( resolve, reject){
         setTimeout( function() {
             return resolve({
@@ -38,7 +39,6 @@ function obterEndereco(idUsuario, callback){
         })
     }, 2000)
 }
-
 const usuarioPromise = obterUsuario()
 //Para manipular o sucesso usamos a função .then
 //Manipular error .catch
@@ -57,11 +57,27 @@ usuarioPromise
             })
     })
     .then(function (resultado) {
-        console.log('Resultado', resultado)
+       const endereco = obterEnderecoAsync(resultado.usuario.id)
+       return endereco.then(function resolverEndereco(result){
+           return {
+               usuario: resultado.usuario,
+               telefone: resultado.telefone,
+               endereco: result
+           }
+       })
     })
+    .then(function (resultado) {
+        console.log(`
+        Nome: ${resultado.usuario.nome},
+        Endereço: ${resultado.endereco.rua},
+        Telefone: ${resultado.telefone.telefone}
+       `)
+     })
     .catch(function (error) {
         console.log('Error', error)
     })
+
+
 /*
  obterUsuario(function resolverUsuario(error, usuario) {    
     // null || "" || 0 === false 
