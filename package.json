@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "Hugo Silva",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sucrase": "^3.12.1"
+  }
 }
