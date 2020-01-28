@@ -4,7 +4,7 @@
   "description": "",
   "main": "services.js",
   "scripts": {
-    "dev": "nodemon services.js",
+    "dev": "nodemon 1.for-forin-forof.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
