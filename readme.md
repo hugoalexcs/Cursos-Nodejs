@@ -16,3 +16,5 @@ Nota: A Promisse pode tornar uma código totalmente recursivo!
 - Bastante usasdo também nos browsers (.onClick)
 - Trabalha sob o Design Patter Observer/PubSub
 
+# Manipulando Listas
+- 
