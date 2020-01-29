@@ -4,7 +4,7 @@
   "description": "",
   "main": "services.js",
   "scripts": {
-    "dev": "nodemon 2.map.js",
+    "dev": "nodemon 3.filter.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
