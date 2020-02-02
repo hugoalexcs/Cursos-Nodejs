@@ -28,4 +28,13 @@ Nota: A Promisse pode tornar uma código totalmente recursivo!
 - Create
 - Delele
 - Update
-- 
+- Cria ferramentas com linha de comando
+- cadastrar
+    node index.js -c -n Flash -p Speed
+- Atualizar
+    node index.js --atualizar 2 --nome Chapolin
+    node index.js --atualizar 2 --poder "Cura"
+- Listar
+    node index.js  -l
+- Remover
+    node index.js --remover --id 1
