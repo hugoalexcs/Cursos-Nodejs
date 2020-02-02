@@ -18,3 +18,14 @@ Nota: A Promisse pode tornar uma código totalmente recursivo!
 
 # Manipulando Listas
 - 
+
+# Teste automatizados
+- Mocha
+- Nock
+
+# Criando ferramentas de linha de comando
+- Read
+- Create
+- Delele
+- Update
+- 
