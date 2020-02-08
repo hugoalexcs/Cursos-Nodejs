@@ -38,3 +38,52 @@ Nota: A Promisse pode tornar uma código totalmente recursivo!
     node index.js  -l
 - Remover
     node index.js --remover --id 1
+
+# Criando peojetos Multi-banco de dados
+- Padrão Strategy para Multi DataSources
+-  Docker: é um programa que consegue criar um mini sistema operacional 
+- Docker hub: repositorio do docker
+- Install docker container do postgres
+docker run \
+ --name postgres \
+ -e POSTGRES_USER=hugosilva \
+ -e POSTGRES_PASSWORD=minhasenha \
+ -e POSTGRES_DB=heroes \
+ -p 5432:5432 \
+ -d \
+ postgres
+ 
+ - Install docker postgres-client
+ docker run --name adminer --link postgres:postgres -p 8080:8080 -d adminer 
+
+- Install mongoDB
+docker run --name mongodb -p 27017:27017  -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin -d mongo:4
+docker run \
+    --name mongo4 \
+    -p 27017:27017 \
+    -e MONGO_INITDB_ROOT_USERNAME=admin \
+    -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
+    -d \
+    mongo:4
+- Intall clinet MongoDB
+docker run --name mongoclient -p 3000:3000 --link mongodb:mongodb -d mongoclient/mongoclient 
+docker run \
+    --name mongoclient \
+    -p 3000:3000 \
+    --link mongodb:mongodb \
+    -d \
+    mongoclient/mongoclient
+
+- Comandos do docker
+--> docker ps: mostra os docker rodando na maquina
+--> docker exec -it postgres /bin/bash : entra no comando para                                              alterar algo 
+--> -d significa em segundo plano
+
+- Criar um mando de usuario e banco no mongo 
+docker exec -it mongodb \
+    mongo --host localhost -u admin -p senhaadmin --authenticationDatabase admin \
+    --eval "db.getSiblingDB('herois').createUser({user: 'hugo', pwd: 'minhasenhasecreta', roles: [{role: 'readWrite', db: 'herois'}]})"
+
+# Usando o padrão de projeto Startegy para multi-datasource Design Pattern
+- 
+
