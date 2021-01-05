@@ -13,7 +13,7 @@
     "sucrase": "^3.12.1"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "nock": "^11.7.2"
   }
 }
